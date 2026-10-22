@@ -1,0 +1,29 @@
+[
+  {
+    "id": "note-1",
+    "title": "Meeting Notes",
+    "icon": "notes",
+    "color": "pink",
+    "content": "Completed user authentication system and database migration. In progress with frontend setup and REST API endpoints.",
+    "updatedAt": "Sep 18, 2025, 08:02 PM",
+    "createdAt": "2025-09-18T20:02:00.000Z"
+  },
+  {
+    "id": "note-2",
+    "title": "Project Ideas",
+    "icon": "bulb",
+    "color": "purple",
+    "content": "Personal finance tracker app - Plant care reminder app - Recipe cost calculator",
+    "updatedAt": "Sep 18, 2025, 08:03 PM",
+    "createdAt": "2025-09-18T20:03:00.000Z"
+  },
+  {
+    "id": "note-3",
+    "title": "Gratitude Journal",
+    "icon": "heart",
+    "color": "lavender",
+    "content": "Three good things today: 1. Had a great coffee 2. Finished coding project 3. Beautiful walk in the park",
+    "updatedAt": "Sep 18, 2025, 08:04 PM",
+    "createdAt": "2025-09-18T20:04:00.000Z"
+  }
+]

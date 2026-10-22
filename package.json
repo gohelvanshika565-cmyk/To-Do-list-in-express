@@ -1,0 +1,18 @@
+{
+  "name": "todo-list-express",
+  "version": "1.0.0",
+  "description": "Full-Stack Notes and Todo application built with Express.js, REST API, and aesthetic responsive frontend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": ["todo", "notes", "express", "nodejs", "javascript", "fullstack"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.3.0",
+    "mongoose": "^9.11.3"
+  }
+}

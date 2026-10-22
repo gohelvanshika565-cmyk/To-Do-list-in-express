@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesthetic Pastel Notes & Todo App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-window" id="appWindow">
+
+    <header class="window-header">
+      <div class="header-left">
+        <span class="app-title-badge">
+          <span class="badge-sparkle">✦</span>
+          <span>Aesthetic Notes</span>
+        </span>
+
+        <div class="search-container">
+          <span class="search-icon-symbol">🔍</span>
+          <input type="text" id="searchInput" placeholder="Search notes..." autocomplete="off">
+          <button id="clearSearchBtn" class="clear-search-btn" title="Clear search" style="display:none;">&times;</button>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <button class="btn-quick-add" id="btnQuickAdd">
+          <span>+</span> New Note
+        </button>
+      </div>
+    </header>
+
+    <div class="category-toolbar">
+      <div class="category-chips" id="categoryChips">
+        <button class="chip active" data-filter="all">All Notes</button>
+        <button class="chip" data-filter="notes"><span>📝</span> Notes</button>
+        <button class="chip" data-filter="bulb"><span>💡</span> Ideas</button>
+        <button class="chip" data-filter="heart"><span>💜</span> Journal</button>
+        <button class="chip" data-filter="star"><span>⭐</span> Goals</button>
+        <button class="chip" data-filter="book"><span>📚</span> Study</button>
+        <button class="chip" data-filter="code"><span>💻</span> Tech</button>
+      </div>
+
+      <div class="notes-count-badge" id="notesCountBadge">3 notes</div>
+    </div>
+
+    <main class="window-content">
+      <div class="notes-grid" id="notesGrid"></div>
+
+      <div class="empty-state" id="emptyState" style="display: none;">
+        <div class="empty-icon">🌸</div>
+        <h3>No notes found</h3>
+        <p id="emptyStateText">Try a different search keyword or category.</p>
+      </div>
+    </main>
+
+    <footer class="window-footer">
+      <div class="footer-stats" id="footerStats">
+        🌸 Showing 3 notes
+      </div>
+      <div class="footer-status" id="footerDbStatus">
+        <span class="status-dot online"></span> Ready
+      </div>
+    </footer>
+
+  </div>
+
+  <div class="modal-backdrop" id="noteModal" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon-badge" id="modalHeaderBadge">📝</span>
+          <h2 id="modalTitleText">Add New Note</h2>
+        </div>
+        <button class="modal-close-btn" id="btnCancelModal">&times;</button>
+      </div>
+
+      <form id="noteForm" class="modal-form">
+        <input type="hidden" id="noteIdInput">
+
+        <div class="form-group">
+          <label for="noteTitleInput">Note Title</label>
+          <input type="text" id="noteTitleInput" placeholder="e.g., Meeting Notes, Project Ideas..." required autofocus maxlength="60">
+        </div>
+
+        <div class="form-group">
+          <label>Theme & Category Icon</label>
+          <div class="icon-picker" id="iconPicker">
+            <button type="button" class="icon-option selected" data-icon="notes" data-color="pink">
+              <span class="icon-preview">📝</span>
+              <span class="icon-label">Notes</span>
+            </button>
+            <button type="button" class="icon-option" data-icon="bulb" data-color="purple">
+              <span class="icon-preview">💡</span>
+              <span class="icon-label">Ideas</span>
+            </button>
+            <button type="button" class="icon-option" data-icon="heart" data-color="lavender">
+              <span class="icon-preview">💜</span>
+              <span class="icon-label">Journal</span>
+            </button>
+            <button type="button" class="icon-option" data-icon="star" data-color="yellow">
+              <span class="icon-preview">⭐</span>
+              <span class="icon-label">Goals</span>
+            </button>
+            <button type="button" class="icon-option" data-icon="book" data-color="peach">
+              <span class="icon-preview">📚</span>
+              <span class="icon-label">Study</span>
+            </button>
+            <button type="button" class="icon-option" data-icon="code" data-color="cyan">
+              <span class="icon-preview">💻</span>
+              <span class="icon-label">Tech</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="noteContentInput">Content</label>
+          <textarea id="noteContentInput" rows="2" placeholder="Write your thoughts, checklist items, or ideas..."></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="btnDismissModal">Cancel</button>
+          <button type="submit" class="btn-primary" id="btnSaveNote">Save Note 🌸</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="deleteConfirmModal" style="display: none;">
+    <div class="modal-card modal-confirm">
+      <div class="confirm-icon">🗑️</div>
+      <h3>Delete this note?</h3>
+      <p id="deleteNoteTitle">Are you sure you want to remove this note?</p>
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" id="btnCancelDelete">Cancel</button>
+        <button type="button" class="btn-danger" id="btnConfirmDelete">Delete Note</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
